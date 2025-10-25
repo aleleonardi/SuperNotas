@@ -1,0 +1,22 @@
+# Node / React
+node_modules/
+build/
+.env
+
+# Python / Django
+__pycache__/
+*.pyc
+db.sqlite3
+/media/
+staticfiles/
+
+# Docker
+*.pid
+*.log
+docker-compose.override.yml
+
+# Sistema
+.DS_Store
+.vscode/
+.idea/
+

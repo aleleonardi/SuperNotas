@@ -1,0 +1,52 @@
+
+
+services:
+  db:
+    image: postgres:16
+    container_name: sistemati-db
+    environment:
+      POSTGRES_DB: sistemati_db
+      POSTGRES_USER: sistemati_user
+      POSTGRES_PASSWORD: supercode
+    ports:
+      - "5434:5432"
+    volumes:
+      - infra_pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: sistemati-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@sistemati.com
+      PGADMIN_DEFAULT_PASSWORD: supercode
+    ports:
+      - "8082:80"
+    depends_on:
+      - db
+
+  backend:
+    build: ../backend
+    container_name: sistemati-backend
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ../backend:/app
+      
+    ports:
+      - "8002:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build: ../frontend
+    container_name: sistemati-frontend
+    volumes:
+      - ../frontend/app:/app
+    ports:
+      - "3002:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+
+volumes:
+  infra_pgdata:

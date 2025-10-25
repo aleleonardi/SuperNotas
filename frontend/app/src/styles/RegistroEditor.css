@@ -1,0 +1,59 @@
+.registro-editor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔹 Textarea editável */
+.editor-textarea {
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  min-height: 260px;
+  resize: vertical;
+  transition: all 0.2s ease-in-out;
+}
+
+.editor-textarea.light {
+  background-color: #fff;
+  color: #222;
+}
+
+.editor-textarea.dark {
+  background-color: #1e1e1e;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+.editor-textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* 🔹 Visualização somente leitura */
+.code-viewer {
+  border-radius: 6px;
+  overflow-x: auto;
+  max-height: 400px;
+}
+
+.code-viewer.light {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+}
+
+.code-viewer.dark {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+.code-viewer pre {
+  margin: 0;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
