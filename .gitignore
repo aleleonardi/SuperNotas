@@ -1,22 +1,101 @@
-# Node / React
-node_modules/
-build/
-.env
+# =============================
+# 🌐 SUPERNOTAS - GITIGNORE
+# Backend: Django
+# Frontend: React
+# Infra: Docker
+# =============================
 
-# Python / Django
+# -----------------------------
+# 🐍 PYTHON / DJANGO
+# -----------------------------
 __pycache__/
-*.pyc
-db.sqlite3
-/media/
-staticfiles/
-
-# Docker
-*.pid
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
 *.log
-docker-compose.override.yml
+*.sqlite3
+*.pyproj
+*.idea/
+*.vscode/
+db.sqlite3
+.env
+.env.*
 
-# Sistema
+# Django stuff:
+media/
+staticfiles/
+static/
+*.pot
+*.pyc
+*.mo
+
+# Migrations (geradas automaticamente)
+*/migrations/*
+!*/migrations/__init__.py
+
+# -----------------------------
+# ⚛️ REACT / FRONTEND
+# -----------------------------
+frontend/node_modules/
+frontend/.pnp/
+frontend/.pnp.js
+frontend/pnpm-lock.yaml
+frontend/yarn-error.log
+frontend/npm-debug.log
+frontend/.env
+frontend/build/
+frontend/dist/
+frontend/.parcel-cache/
+
+# -----------------------------
+# 🐳 DOCKER / INFRA
+# -----------------------------
+infra/pgdata/
+infra/__pycache__/
+infra/tmp/
+infra/*.pid
+infra/*.sock
+infra/*.log
+infra/*.env
+infra/.env
+infra/*.db
+infra/volumes/
+infra/.DS_Store
+
+# Ignore Docker volumes and artifacts
+volumes/
+tmp/
+*.pid
+*.sock
+*.log
+*.db
+
+# -----------------------------
+# 🧰 SISTEMAS OPERACIONAIS
+# -----------------------------
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# -----------------------------
+# ⚙️ EDITORES E IDEs
+# -----------------------------
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
 
+# -----------------------------
+# 🔐 SEGURANÇA
+# -----------------------------
+secrets.json
+config.json
+*.pem
+*.key
+*.crt
+*.csr
+*.pub
